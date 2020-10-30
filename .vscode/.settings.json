@@ -1,0 +1,20 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "editor.formatOnSave": false,
+    "python.formatting.provider": "autopep8",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django",
+        "--max-line-length=110"
+    ],
+    "python.linting.flake8Args": [
+        "--max-line-length=110",
+        "--ignore=E402"
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length=110"
+    ]
+}
