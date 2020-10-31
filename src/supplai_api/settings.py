@@ -40,9 +40,13 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PART_APPS = []
+THIRD_PART_APPS = [
+    'rest_framework',
+]
 
-PROJECT_APPS = []
+PROJECT_APPS = [
+    'supplai_api.apps.core',
+]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PART_APPS + PROJECT_APPS
 
@@ -124,3 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+AUTH_USER_MODEL = 'core.User'
