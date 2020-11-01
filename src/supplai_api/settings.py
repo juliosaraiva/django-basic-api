@@ -42,10 +42,13 @@ DEFAULT_APPS = [
 
 THIRD_PART_APPS = [
     'rest_framework',
+    'rest_framework.authtoken',
+    'django_extensions'
 ]
 
 PROJECT_APPS = [
     'supplai_api.apps.core',
+    'supplai_api.apps.transaction',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PART_APPS + PROJECT_APPS

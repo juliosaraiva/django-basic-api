@@ -7,6 +7,7 @@ verify_ssl = true
 flake8 = "*"
 pylint = "*"
 coverage = "*"
+autopep8 = "*"
 
 [packages]
 django = "*"
@@ -14,6 +15,8 @@ python-decouple = "*"
 dj-database-url = "*"
 psycopg2 = "*"
 djangorestframework = "*"
+django-extensions = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.8"
