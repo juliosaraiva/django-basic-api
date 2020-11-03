@@ -8,6 +8,7 @@ router = DefaultRouter(trailing_slash=False)
 router.register(r'new', views.NewTransactionViewSet)
 router.register(r'statement', views.TransactionStatementViewSet)
 router.register(r'balance', views.TransactionBalanceViewSet)
+router.register(r'detail', views.UserDetailViewSet)
 
 
 app_name = 'transaction'

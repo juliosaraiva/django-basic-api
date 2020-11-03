@@ -6,7 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 
 from supplai_api.apps.transaction.models import Transaction
 from supplai_api.apps.transaction.api.serializers import (
-    TransactionSerializer, TransactionBalanceSerializer
+    TransactionSerializer, TransactionBalanceSerializer,
+    UserDetailSerializer
 )
 
 
@@ -54,9 +55,28 @@ class TransactionBalanceViewSet(BaseTransactionViewSet, mixins.RetrieveModelMixi
 
     def retrieve(self, *args, **kwargs):
        balance = self.get_queryset()
-       print(balance)
        return Response(balance)
 
     def get_serializer_class(self):
         if self.action == 'retrieve':
             return TransactionBalanceSerializer
+
+
+class UserDetailViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin):
+    queryset = Transaction.objects.all()
+    serializer_class = UserDetailSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        queryset = self.queryset
+        user_id = self.kwargs.get('pk')
+
+        if user_id:
+            queryset = queryset.transaction_set.all()
+        return queryset
+
+    def retrieve(self, *args, **kwargs):
+        user = self.get_queryset()
+        print(user)
+        return Response(user)
